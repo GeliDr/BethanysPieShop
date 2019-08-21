@@ -1,0 +1,71 @@
+﻿@model SiteViewModel
+
+<script type="text/javascript">
+    function SelectedIndexChanged() {
+        debugger;
+        $('#btnSelectedIndexChange').click();
+    }
+</script>
+
+<form method="post">
+
+    <table>
+        <tr>
+            <td>
+                <label asp-for="SelectedPropertyTypeValue">Property Type</label>
+                <select asp-for="SelectedPropertyTypeId" asp-items="@(new SelectList(Model.SystemCodes,"SystemCodeId","Value" ))" onchange="SelectedIndexChanged()"></select>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-controller="Site" asp-action="AddSite">Add Site</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @foreach (var _site in Model.Sites)
+                {
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+
+                            <div class="caption">
+                                <input type="hidden" value="@_site.SiteId" />
+                                <label>Site Name:</label>
+                                <h3 class="pull-right"> @_site.SiteName</h3>
+                                <label>Location Description:</label>
+                                <h3>
+                                    @_site.LocationDesc
+                                </h3>
+                                <label>Property Type</label>
+                                <h3>@_site.PropertyType.Value</h3>
+                                <h3>
+                                    <a asp-controller="Site" asp-action="EditSite" asp-route-Id="@_site.SiteId" asp-route-Code="@_site.SiteName">Edit Site</a>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Partial("_HeaderNavBar")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button asp-controller="Site" asp-action="Return">Click Me</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button asp-page="/Information">Information</button>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        <button id="btnSelectedIndexChange" asp-controller="Site" asp-action="SelectedIndexChange"></button>
+    </div>
+</form>

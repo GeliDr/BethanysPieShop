@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "_HeaderNavBar";
+}
+
+<h2>Header Nav Bar Test</h2>
+
+
+ <a asp-controller="Site" asp-action="Index">Index</a>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+
+    </div>
+</div>
+
