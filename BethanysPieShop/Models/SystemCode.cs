@@ -14,6 +14,8 @@ namespace BethanysPieShop.Models
         public String Value { get; set; }
 
         public Int32 SystemTableId { get; set; }
+
+        public Guid ApplicationId { get; set; }
         //public List<Site> Sites { get; set; }
     }
 }
