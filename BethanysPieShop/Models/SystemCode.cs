@@ -13,6 +13,7 @@ namespace BethanysPieShop.Models
         public String Code { get; set; }
         public String Value { get; set; }
 
+        public Int32 SystemTableId { get; set; }
         //public List<Site> Sites { get; set; }
     }
 }
