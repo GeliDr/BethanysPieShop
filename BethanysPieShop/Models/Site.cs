@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BethanysPieShop.Models
 {
-    public class Site:IValidatableObject
+    public class Site
     {
 
         public Guid SiteId { get; set; }
@@ -29,9 +29,9 @@ namespace BethanysPieShop.Models
 
         public SystemCode PropertyType { get; set; }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
